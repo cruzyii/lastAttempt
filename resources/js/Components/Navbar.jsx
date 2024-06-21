@@ -7,11 +7,15 @@ function Navbar({ showFlyout, setShowFlyout }) {
         <div className='flex border-2'>
             <div className='flex justify-between w-full p-3 px-16 text-lg font-semibold'>
                 <div className='flex items-center px-2'>
-                    <a href='#' className='font-Comfortaa font-bold text-xl'>Zenith</a>
+                    <a href='#' className='font-AbhayaLibre font-bold text-3xl'>Zenith</a>
                 </div>
-                <div className='flex items-center px-2'>
-                    <a href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>test</a>
-                </div>
+                <ul className='flex items-center px-2'>
+                    <li className='p-2'><a href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Kolekcijas</a></li>
+                    <li className='p-2'><a href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Apģērbi</a></li>
+                    <li className='p-2'><a href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Akesuāri</a></li>
+                    <li className='p-2'><a href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Apavi</a></li>
+                    <li className='p-2'><a href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Izpārdošana</a></li>
+                </ul>
                 <form>
                     <div className="transition-background-color duration-500 flex rounded-3xl bg-gray-100 w-max pr-3 items-center focus-within:bg-gray-900/5 h-9 focus-within:shadow-dark">
                         <div className='transition-all duration-200 hover:bg-gray-900/10 flex rounded-3xl p-1.5'>

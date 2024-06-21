@@ -16,6 +16,7 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 roboto: ['Roboto'],
                 Comfortaa: ['Comfortaa'],
+                AbhayaLibre: ['Abhaya Libre'],
 
             },
         },
