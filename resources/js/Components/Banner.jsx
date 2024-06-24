@@ -26,7 +26,7 @@ function Banner() {
                         <div className="absolute bottom-0 p-12 text-white">
                             <h2 className='text-lg'>Vasaras kolekcija</h2>
                             <h1 className='text-3xl pb-2'>Sievietēm</h1>
-                            <Button>Skatīt</Button>
+                            <Button variant='secondary'>Skatīt</Button>
                         </div>
                     </div>
                     <div className='relative flex-1'>
@@ -34,7 +34,7 @@ function Banner() {
                         <div className="absolute bottom-0 p-12 text-white">
                             <h2 className='text-lg'>Vasaras kolekcija</h2>
                             <h1 className='text-3xl pb-2'>Vīriešiem</h1>
-                            <Button>Skatīt</Button>
+                            <Button variant='secondary'>Skatīt</Button>
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@ function Banner() {
                         <div className="absolute bottom-0 p-12 text-white">
                             <h2 className='text-lg'>Jaunākie</h2>
                             <h1 className='text-3xl pb-2'>Aksesuāri</h1>
-                            <Button>Skatīt</Button>
+                            <Button variant='secondary'>Skatīt</Button>
                         </div>
                     </div>
                     <div className='relative flex-1'>
@@ -52,7 +52,7 @@ function Banner() {
                         <div className="absolute bottom-0 p-12 text-white">
                             <h2 className='text-lg'>Vasaras kolekcija</h2>
                             <h1 className='text-3xl pb-2'>Sporta apģērbs</h1>
-                            <Button>Skatīt</Button>
+                            <Button variant='secondary'>Skatīt</Button>
                         </div>
                     </div>
                 </div>
