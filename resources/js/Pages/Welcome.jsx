@@ -3,6 +3,7 @@ import TopMenu from '@/Components/TopMenu';
 import NavBar from '@/Components/Navbar';
 import Flyout from '@/Components/Flyout';
 import Banner from '@/Components/Banner';
+import Hero from '@/Components/Hero';
 
 function Welcome(){
     const [showFlyout, setShowFlyout] = useState(false);
@@ -13,7 +14,7 @@ function Welcome(){
             <NavBar showFlyout={showFlyout} setShowFlyout={setShowFlyout}/>
             <Flyout showFlyout={showFlyout}/>
             <Banner/>
-            <p>Test</p>
+            <Hero/>
         </div>
     );
 }
