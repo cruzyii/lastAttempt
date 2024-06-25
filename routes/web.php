@@ -13,6 +13,10 @@ Route::get('/products', function () {
     return Inertia::render('Products');
 });
 
+Route::get('/add', function () {
+    return Inertia::render('AddProduct');
+});
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
