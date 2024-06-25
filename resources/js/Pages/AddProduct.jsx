@@ -6,12 +6,12 @@ import { router } from '@inertiajs/react'
 
 
 function AddProduct(){
-    const [image, setImage] = useState(null);
+    const [data, setData] = useState(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('image', image);
+        formData.append('image', data);
 
         router.post('/images', formData, {
             headers: {
@@ -22,7 +22,7 @@ function AddProduct(){
 
 return (
   <form onSubmit={handleSubmit}>
-    <input type="file" onChange={(e) => setImage(e.target.files[0])} />
+    <input type="file" onChange={(e) => setData(e.target.files[0])} />
     <button type="submit">Submit</button>
   </form>
 )
