@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 
-Route::post('/images', [ProductController::class, 'store']);
+Route::post('/products', [ProductController::class, 'store']);
 
 Route::get('/', function () {
     return Inertia::render('Welcome');
