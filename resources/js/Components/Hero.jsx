@@ -4,8 +4,28 @@ import Banner2 from '../../Images/Banner2.png';
 import Banner3 from '../../Images/Banner3.png';
 import Banner4 from '../../Images/Banner4.png';
 import Heading from './Heading';
+import Adidas1 from '../../Images/Hero-Products/Adidas1.png';
+import Adidas2 from '../../Images/Hero-Products/Adidas2.png';
+import Nike1 from '../../Images/Hero-Products/Nike1.png';
+import Nike2 from '../../Images/Hero-Products/Nike2.png';
+import Nike3 from '../../Images/Hero-Products/Nike3.png';
+import Nike4 from '../../Images/Hero-Products/Nike4.png';
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import { useRef, useState } from 'react';
+
 
 function Hero() {
+    const slideLeft = () => {
+        var slider = document.getElementById('slider');
+        slider.scrollLeft = slider.scrollLeft - 500;
+    }
+
+    const slideRight = () => {
+        var slider = document.getElementById('slider');
+        slider.scrollLeft = slider.scrollLeft + 500;
+    }
+
+
     return (
         <div>
             <Heading heading='STYLE REMAINS' subheading='Fashion fades, only style remains the same'/>
@@ -51,6 +71,22 @@ function Hero() {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className='mt-12'>
+                <Heading heading='APAVU KOLEKCIJA' subheading=''/>
+                <div className='flex justify-center'><Button variant='primary'>Produkti</Button></div>
+            </div>
+            <div className='py-12 relative flex items-center'>
+                <MdChevronLeft onClick={slideLeft} className='opacity-50 cursor-pointer hover:opacity-100' size={40}/>
+                <div id='slider' className='w-full h-full overflow-x-auto overflow-y-hidden scroll whitespace-nowrap scroll-smooth'>
+                    <img className='w-[320px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300' src={Adidas1}></img>
+                    <img className='w-[320px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300' src={Adidas2}></img>
+                    <img className='w-[320px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300' src={Nike1}></img>
+                    <img className='w-[320px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300' src={Nike2}></img>
+                    <img className='w-[320px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300' src={Nike3}></img>
+                    <img className='w-[320px] inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300' src={Nike4}></img>
+                </div>
+                <MdChevronRight onClick={slideRight} className='opacity-50 cursor-pointer hover:opacity-100' size={40}/>
             </div>
         </div>
     );
