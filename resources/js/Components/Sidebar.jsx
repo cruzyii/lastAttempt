@@ -2,7 +2,7 @@ import { FaChevronDown } from "react-icons/fa";
 
 function Sidebar(){
     return (
-        <div className="flex flex-col w-[240px] pl-[72px] py-2 my-2 text-xl leading-relaxed font-medium overflow-y-scroll">
+        <div className="flex flex-col w-[270px] pl-[72px] py-2 my-2 text-xl leading-relaxed font-medium overflow-y-scroll">
             <ul className="">
                 <li>T-Krekli</li>
                 <li>Džinsi</li>
