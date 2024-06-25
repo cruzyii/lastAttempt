@@ -20,6 +20,7 @@ return new class extends Migration
             $table->discount();
             $table->discount_price();
             $table->timestamps();
+            $table->availability();
         });
     }
 

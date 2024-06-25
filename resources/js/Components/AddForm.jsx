@@ -7,20 +7,8 @@ import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 
 
 
-// function AddProduct() {
-//     const { data, setData, post } = useForm({
-//         name: '',
-//         price: '',
-//         description: '',
-//         image: '',
-//         sex: '',
-//         category: '',
-//     });
 
-//     function handleSubmit(e) {
-//         e.preventDefault();
-//         post('/products');
-//     }
+
 
 //     return (
 //         <div className=''>
@@ -69,8 +57,23 @@ import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 
 
 function AddForm() {
+    const { data, setData, post } = useForm({
+        name: '',
+        price: '',
+        description: '',
+        image: '',
+        sex: '',
+        category: '',
+        availability: false,
+    });
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        post('/products');
+    }
+
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className="space-y-12">
                 <div className="border-b border-gray-900/10 pb-12">
                     <h2 className="text-base font-semibold leading-7 text-gray-900">Add a new product</h2>
@@ -82,6 +85,7 @@ function AddForm() {
                             <div className="mt-2">
                                 <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                                     <input
+                                        value={data.category} onChange={e => setData('name', e.target.value)}
                                         type="text"
                                         name="name"
                                         id="name"
@@ -100,6 +104,7 @@ function AddForm() {
                                 <div className="mt-2">
                                     <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                                         <input
+                                            value={data.category} onChange={e => setData('price', e.target.value)}
                                             type="number"
                                             name="price"
                                             id="price"
@@ -120,6 +125,7 @@ function AddForm() {
                                 </label>
                                 <div className="mt-2">
                                     <select
+                                        value={data.category} onChange={e => setData('sex', e.target.value)}
                                         id="gender"
                                         name="gender"
                                         autoComplete="gender"
@@ -138,6 +144,7 @@ function AddForm() {
                                 </label>
                                 <div className="mt-2">
                                     <select
+                                        value={data.category} onChange={e => setData('category', e.target.value)}
                                         id="category"
                                         name="category"
                                         autoComplete="category"
@@ -182,7 +189,7 @@ function AddForm() {
                                             className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                                         >
                                             <span>Upload a file</span>
-                                            <input id="file-upload" name="file-upload" type="file" className="sr-only" />
+                                            <input id="file-upload" name="file-upload" type="file" className="sr-only" onChange={(e) => setData('image', e.target.files[0])}/>
                                         </label>
                                         <p className="pl-1">or drag and drop</p>
                                     </div>
@@ -196,6 +203,7 @@ function AddForm() {
                 <div className='flex items-center gap-x-3'>
                     <label htmlFor="availability" className="font-medium text-gray-900">Ir pieejams noliktavā:</label>
                     <input
+                        value={data.category} onChange={e => setData('availability', e.target.value)}
                         id="availability"
                         name="availability"
                         type="checkbox"
