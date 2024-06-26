@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 
+Route::get('/shop', [ProductController::class, 'index']);
+
 Route::post('/products', [ProductController::class, 'store']);
 
 Route::get('/', function () {

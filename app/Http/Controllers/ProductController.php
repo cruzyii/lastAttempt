@@ -4,10 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Inertia\Inertia;
 use App\Models\Product;
 
 class ProductController extends Controller
 {
+    public function index()
+    {
+        $data = Product::all();
+
+        return Inertia::render('Shop', [
+            'data' => $data
+        ]);
+    }
+
     public function store(Request $request)
     {
         // if($request->hasFile('image')){

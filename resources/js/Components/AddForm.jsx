@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm, usePage } from '@inertiajs/react'
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import Product from './Product';
+
+
 
 
 function AddForm() {
@@ -22,6 +24,8 @@ function AddForm() {
         e.preventDefault();
         post('/products');
     }
+
+
 
     return (
         <div className=''>
@@ -184,7 +188,8 @@ function AddForm() {
                         <div className='flex flex-1 pl-8 pb-8'>
                             <div className='flex flex-col flex-1 bg-gray-200'>
                                 <h2 className="text-xl font-semibold text-gray-900">Priekšskatījums</h2>
-                                <div className='flex flex-1 bg-blue-300'></div>
+                                <div className='flex flex-1 bg-blue-300'>
+                                </div>
                             </div>
                         </div>
 
@@ -193,7 +198,7 @@ function AddForm() {
                     <div className="flex items-center justify-end gap-x-3">
                         <button type="button" className="drop-shadow rounded-md px-4 bg-white py-2 text-sm font-semibold shadow-sm hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             Atcelt
-                        </button>   
+                        </button>
                         <button
                             type="submit"
                             className="drop-shadow rounded-md bg-gray-800 px-4  py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
