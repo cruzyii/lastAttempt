@@ -3,67 +3,14 @@ import { useForm } from '@inertiajs/react'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 
 
-
-
-
-
-
-
-
-//     return (
-//         <div className=''>
-//             <form onSubmit={handleSubmit} className='block'>
-//                 <label htmlFor="image">Image</label>
-//                 <input type="file" id="image" onChange={(e) => setData('image', e.target.files[0])} />
-
-//                 <label htmlFor="name">Name</label>
-//                 <input type="text" id="name" value={data.name} onChange={e => setData('name', e.target.value)} />
-
-//                 <label htmlFor="price">Price</label>
-//                 <input type="number" id="price" value={data.price} onChange={e => setData('price', e.target.value)} />
-
-//                 <label htmlFor="description">Description</label>
-//                 <input type="text" id="description" value={data.description} onChange={e => setData('description', e.target.value)} />
-
-//                 <label htmlFor="sex">Sex</label>
-//                 <input type="text" id="sex" value={data.sex} onChange={e => setData('sex', e.target.value)} />
-
-//                 <label htmlFor="category">Category</label>
-//                 <input type="text" id="category" value={data.category} onChange={e => setData('category', e.target.value)} />
-
-//                 <button type="submit">Submit</button>
-//             </form>
-//         </div>
-//     )
-// }
-// export default AddProduct;
-
-
-
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
-
-
 function AddForm() {
     const { data, setData, post } = useForm({
         name: '',
         price: '',
         description: '',
         image: '',
-        gender: '',
-        category: '',
+        gender: 'Vīriešiem',
+        category: 'Kat1',
         availability: false,
     });
 
@@ -91,6 +38,7 @@ function AddForm() {
                                         id="name"
                                         className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                                         placeholder="product-name"
+                                        required
                                     />
                                 </div>
                             </div>
@@ -111,6 +59,7 @@ function AddForm() {
                                             autoComplete="0"
                                             className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                                             placeholder="0€"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -125,7 +74,7 @@ function AddForm() {
                                 </label>
                                 <div className="mt-2">
                                     <select
-                                        onChange={e => setData('gender', e.target.value)}
+                                        value={data.gender} onChange={e => setData('gender', e.target.value)}
                                         id="gender"
                                         name="gender"
                                         autoComplete="gender"
@@ -144,7 +93,7 @@ function AddForm() {
                                 </label>
                                 <div className="mt-2">
                                     <select
-                                        onChange={e => setData('category', e.target.value)}
+                                        value={data.category} onChange={e => setData('category', e.target.value)}
                                         id="category"
                                         name="category"
                                         autoComplete="category"

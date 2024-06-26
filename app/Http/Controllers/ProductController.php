@@ -19,7 +19,7 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->gender = $request->gender;
         $product->category = $request->category;
-        $product->image = $request->image->hashName();
+        $product->image = $request->image;
         $product->availability = $request->availability;
         $product->save();
         return redirect('/products');
