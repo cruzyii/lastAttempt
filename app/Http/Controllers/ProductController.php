@@ -28,6 +28,8 @@ class ProductController extends Controller
         $product->category = $request->category;
         $product->image = $request->image;
         $product->availability = $request->availability;
+        $product->size = $request->size;
+        $product->color = $request->color;
         $product->save();
         return redirect('/products');
     }

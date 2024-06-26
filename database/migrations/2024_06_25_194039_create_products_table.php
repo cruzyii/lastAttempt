@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('category');
             $table->string('image')->nullable();
             $table->integer('stock')->nullable();
-            // $table->id('discount');
-            $table->float('discount_price')->nullable();
+            $table->string('color');
+            $table->string('size');
             $table->timestamp('updated_at');
             $table->timestamp('created_at');
             $table->string('availability');
