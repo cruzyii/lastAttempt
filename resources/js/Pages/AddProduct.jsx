@@ -4,7 +4,7 @@ import Layout from "@/Components/Layout";
 function AddProduct(){
     return(
         <Layout>
-            <div className="p-24">
+            <div className="flex justify-center">
                 <AddForm />
             </div>
         </Layout>

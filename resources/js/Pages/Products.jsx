@@ -1,5 +1,4 @@
 import Layout from "@/Components/Layout";
-import Subnav from "@/Components/Subnav";
 import Sidebar from "@/Components/Sidebar";
 import { IoIosMenu } from "react-icons/io";
 import { FaChevronDown } from "react-icons/fa";
@@ -7,7 +6,6 @@ import { FaChevronDown } from "react-icons/fa";
 function Products(){
     return (
             <Layout>
-                <Subnav/>
                 <div className="flex flex-1 px-[72px] py-4 font-medium text-l justify-between">
                     <h1 className="text-2xl">Vīriešu Apģērbi(3)</h1>
                     <ul className="flex space-x-4">
