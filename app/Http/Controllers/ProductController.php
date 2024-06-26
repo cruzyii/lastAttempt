@@ -10,9 +10,16 @@ class ProductController extends Controller
 {
     public function store(Request $request)
     {
-        if($request->hasFile('image')){
-            Storage::disk('public')->put('images', $request->image);
-        }
+        // if($request->hasFile('image')){
+        //     Storage::disk('public')->put('images', $request->image);
+        // }
+        $request->validate([
+            'name' => ['required','max:255'],
+            'price' => ['required', 'min:0'],
+            'image' => ['image', 'mimes:jpeg,png,jpg,svg', 'max:2048'],
+        ]);
+
+        Storage::disk('public')->put('images', $request->image);
         $product = new Product();
         $product->name = $request->name;
         $product->price = $request->price;

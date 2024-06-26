@@ -1,9 +1,11 @@
 import React from 'react';
-import { useForm } from '@inertiajs/react'
+import { useForm, usePage } from '@inertiajs/react'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 
 
 function AddForm() {
+    const { errors } = usePage().props;
+
     const { data, setData, post } = useForm({
         name: '',
         price: '',
@@ -22,7 +24,7 @@ function AddForm() {
     return (
         <form onSubmit={handleSubmit}>
             <div className="space-y-12">
-                <div className="border-b border-gray-900/10 pb-12">
+                <div className=" pb-12">
                     <h2 className="text-base font-semibold leading-7 text-gray-900">Add a new product</h2>
                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                         <div className="sm:col-span-4">
@@ -41,6 +43,7 @@ function AddForm() {
                                         required
                                     />
                                 </div>
+                                {errors.name && <div>{errors.name}</div>}
                             </div>
 
 
@@ -62,6 +65,7 @@ function AddForm() {
                                             required
                                         />
                                     </div>
+                                    {errors.price && <div>{errors.price}</div>}
                                 </div>
                             </div>
                         </div>
@@ -145,6 +149,7 @@ function AddForm() {
                                     <p className="text-xs leading-5 text-gray-600">PNG, JPG</p>
                                 </div>
                             </div>
+                            {errors.image && <div>{errors.image}</div>}
                         </div>
                     </div>
                 </div>
@@ -160,7 +165,7 @@ function AddForm() {
                     />
                 </div>
             </div>
-
+  
             <div className="mt-6 flex items-center justify-end gap-x-6">
                 <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
                     Cancel
