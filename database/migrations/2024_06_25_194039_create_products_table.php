@@ -10,17 +10,18 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->name();
-            $table->description();
-            $table->price();
-            $table->sex();
-            $table->category();
-            $table->image();
-            $table->stock();
-            $table->discount();
-            $table->discount_price();
-            $table->timestamps();
-            $table->availability();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->decimal('price', 8, 2);
+            $table->string('gender');
+            $table->string('category');
+            $table->string('image')->nullable();
+            $table->integer('stock')->nullable();
+            // $table->id('discount');
+            $table->float('discount_price')->nullable();
+            $table->timestamp('updated_at');
+            $table->timestamp('created_at');
+            $table->string('availability');
         });
     }
 
