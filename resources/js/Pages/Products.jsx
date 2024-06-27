@@ -1,9 +1,18 @@
+import React, { useState } from 'react';
 import Layout from "@/Components/Layout";
 import Sidebar from "@/Components/Sidebar";
 import { IoIosMenu } from "react-icons/io";
 import { FaChevronDown } from "react-icons/fa";
+import testImage from '/resources/Images/sro9kmfusp261.jpg';
 
-function Shop({ data }) {
+function Products({ products }) {
+    const [category, setCategory] = useState('');
+    const filteredProducts = category
+        ? products.filter(product => product.category === category)
+        : products;
+
+
+
     return (
         <Layout>
             <div className="flex flex-1 px-[72px] py-4 font-medium text-l justify-between">
@@ -23,17 +32,22 @@ function Shop({ data }) {
                     </li>
                 </ul>
             </div>
-            <Sidebar />
-            <div>
-                <h1>My Data</h1>
-                <ul>
-                    {console.log(data)}
-                    {data.map(item => (
-                        <li key={item.id}>{item.name}</li>
+            <div className='flex'>
+                <Sidebar />
+                <div className="flex flex-wrap">
+                    {filteredProducts.map(product => (
+                        <div key={product.id} className="w-full md:w-1/2 lg:w-1/3 p-4">
+                            <div className="border p-4 mb-4">
+                                <div className='aspect-video'><img src={`${product.image}`} alt={product.name} className="object-cover w-full h-full mb-4" /></div>
+                                <h3 className="text-lg font-bold">{product.name}</h3>
+                                <p className="text-gray-600">{product.category}</p>
+                                <p className="text-gray-800">${product.price}</p>
+                            </div>
+                        </div>
                     ))}
-                </ul>
+                </div>
             </div>
         </Layout>
     )
 }
-export default Shop;
+export default Products;
