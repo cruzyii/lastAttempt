@@ -3,13 +3,21 @@ import Layout from "@/Components/Layout";
 import Sidebar from "@/Components/Sidebar";
 import { IoIosMenu } from "react-icons/io";
 import { FaChevronDown } from "react-icons/fa";
-import testImage from '/resources/Images/sro9kmfusp261.jpg';
+import { router } from '@inertiajs/react'
 
 function Products({ products }) {
     const [category, setCategory] = useState('');
     const filteredProducts = category
         ? products.filter(product => product.category === category)
         : products;
+
+
+    const handleDelete = (productId) => {
+        router.delete(`/products/${productId}`, {
+            _method: 'delete',
+            $id: productId,
+          })
+    };
 
 
 
@@ -38,14 +46,17 @@ function Products({ products }) {
                     {filteredProducts.map(product => (
                         <div key={product.id} className="w-full md:w-1/2 lg:w-1/3">
                             <div className="p-4 mb-4">
-                                <div className='aspect-video'><img src={`${product.image}`} alt={product.name} className="rounded-md object-cover w-full h-full mb-4" /></div>
+                                <div className='aspect-video'><img src={`/storage/${product.image}`} alt={product.name} className="rounded-md object-cover w-full h-full mb-4" /></div>
                                 <div className='flex justify-between'>
                                     <div>
                                         <h3 className="text-lg font-bold">{product.name}</h3>
                                         <p className="text-gray-600">{product.category}</p>
                                         <p className="text-gray-800">${product.price}</p>
                                     </div>
-                                    <div><button className='text-lg hover:text-gray-600 font-bold'>Add to cart</button></div>
+                                    <div className='flex flex-col'>
+                                        <button className='block text-lg hover:text-gray-600 font-bold'>Add to cart</button>
+                                        <button onClick={() => handleDelete(product.id)} className='block text-lg hover:text-red-600 font-bold'>Delete</button>
+                                    </div>
                                 </div>
 
                             </div>

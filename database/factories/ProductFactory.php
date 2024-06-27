@@ -31,7 +31,6 @@ class ProductFactory extends Factory
             'stock' => $this->faker->numberBetween(0, 100),
             'color' => $this->faker->safeColorName,
             'size' => $this->faker->randomElement(['XS', 'S', 'M', 'L', 'XL', 'XXL']),
-            'availability' => $this->faker->boolean,
             'created_at' => now(),
             'updated_at' => now(),
         ];

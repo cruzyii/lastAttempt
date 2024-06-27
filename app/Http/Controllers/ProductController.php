@@ -29,6 +29,8 @@ class ProductController extends Controller
             'image' => ['image', 'mimes:jpeg,png,jpg,svg', 'max:2048'],
         ]);
 
+        $imagePath = $request->file('image')->store('images', 'public');
+
         Storage::disk('public')->put('images', $request->image);
         $product = new Product();
         $product->name = $request->name;
@@ -36,11 +38,22 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->gender = $request->gender;
         $product->category = $request->category;
-        $product->image = $request->image;
-        $product->availability = $request->availability;
+        $product->image = $imagePath;
         $product->size = $request->size;
         $product->color = $request->color;
         $product->save();
+        return redirect('/products');
+    }
+
+
+    public function destroy($id)
+    {
+        $product = Product::findOrFail($id);
+        
+        Storage::disk('public')->delete($product->image);
+        
+        $product->delete();
+
         return redirect('/products');
     }
 }

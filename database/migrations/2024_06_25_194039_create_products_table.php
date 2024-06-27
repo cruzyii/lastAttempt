@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('size');
             $table->timestamp('updated_at');
             $table->timestamp('created_at');
-            $table->boolean('availability');
         });
     }
 
