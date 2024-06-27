@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useForm, usePage } from '@inertiajs/react'
-
+import { useForm, usePage } from '@inertiajs/react';
+import { Link } from '@inertiajs/react'
 
 
 
@@ -16,7 +16,6 @@ function AddForm() {
         image: '',
         gender: 'Vīriešiem',
         category: 'T-Krekli',
-        availability: false,
         color: 'Balts',
         size: 'S',
     });
@@ -209,7 +208,7 @@ function AddForm() {
                                             <div>
                                                 <h3 className="text-lg font-bold">{data.name}</h3>
                                                 <p className="text-gray-600">{data.category}</p>
-                                                <p className="text-gray-800">${data.price}</p>
+                                                <p className="text-gray-800">€{data.price}</p>
                                             </div>
                                             <div className='flex flex-col'>
                                                 <a href='#' className='block text-lg hover:text-gray-600 font-bold'>Add to cart</a>
@@ -225,9 +224,9 @@ function AddForm() {
 
                     </div>
                     <div className="flex items-center justify-end gap-x-3">
-                        <button type="button" className="drop-shadow rounded-md px-4 bg-white py-2 text-sm font-semibold shadow-sm hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        <Link href='/' className="drop-shadow rounded-md px-4 bg-white py-2 text-sm font-semibold shadow-sm hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             Atcelt
-                        </button>
+                        </Link>
                         <button
                             type="submit"
                             className="drop-shadow rounded-md bg-gray-800 px-4  py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

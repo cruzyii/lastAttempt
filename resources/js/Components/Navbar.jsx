@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Search from '../../Images/search.svg';
+import { Link } from '@inertiajs/react'
 
 
 function Navbar({ showFlyout, setShowFlyout }) {
@@ -7,14 +7,14 @@ function Navbar({ showFlyout, setShowFlyout }) {
         <div className='flex border-2'>
             <div className='flex justify-between w-full p-3 px-16 text-lg font-semibold'>
                 <div className='flex items-center px-2 w-[220px]'>
-                    <a href='#' className='font-AbhayaLibre font-bold text-3xl'>Zenith</a>
+                    <Link href='/' className='font-AbhayaLibre font-bold text-3xl'>Zenith</Link>
                 </div>
                 <ul className='flex items-center space-x-4'>
-                    <li><a href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Kolekcijas</a></li>
-                    <li><a href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Apģērbi</a></li>
-                    <li><a href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Akesuāri</a></li>
-                    <li><a href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Apavi</a></li>
-                    <li><a href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Izpārdošana</a></li>
+                    <li><Link href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Kolekcijas</Link></li>
+                    <li><Link href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Apģērbi</Link></li>
+                    <li><Link href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Akesuāri</Link></li>
+                    <li><Link href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Apavi</Link></li>
+                    <li><Link href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Izpārdošana</Link></li>
                 </ul>
                 <form>
                     <div className="transition-background-color duration-500 flex rounded-3xl bg-gray-100 w-max pr-3 items-center focus-within:bg-gray-900/5 h-9 focus-within:shadow-dark">
