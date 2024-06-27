@@ -36,12 +36,18 @@ function Products({ products }) {
                 <Sidebar />
                 <div className="flex flex-wrap">
                     {filteredProducts.map(product => (
-                        <div key={product.id} className="w-full md:w-1/2 lg:w-1/3 p-4">
-                            <div className="border p-4 mb-4">
-                                <div className='aspect-video'><img src={`${product.image}`} alt={product.name} className="object-cover w-full h-full mb-4" /></div>
-                                <h3 className="text-lg font-bold">{product.name}</h3>
-                                <p className="text-gray-600">{product.category}</p>
-                                <p className="text-gray-800">${product.price}</p>
+                        <div key={product.id} className="w-full md:w-1/2 lg:w-1/3">
+                            <div className="p-4 mb-4">
+                                <div className='aspect-video'><img src={`${product.image}`} alt={product.name} className="rounded-md object-cover w-full h-full mb-4" /></div>
+                                <div className='flex justify-between'>
+                                    <div>
+                                        <h3 className="text-lg font-bold">{product.name}</h3>
+                                        <p className="text-gray-600">{product.category}</p>
+                                        <p className="text-gray-800">${product.price}</p>
+                                    </div>
+                                    <div><button className='text-lg hover:text-gray-600 font-bold'>Add to cart</button></div>
+                                </div>
+
                             </div>
                         </div>
                     ))}
