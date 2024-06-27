@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm, usePage } from '@inertiajs/react'
+
 
 
 
@@ -19,6 +20,22 @@ function AddForm() {
         color: 'Balts',
         size: 'S',
     });
+
+
+    const [preview, setPreview] = useState(null);
+
+
+    useEffect(() => {
+        if (!data.image) {
+            setPreview(null);
+            return;
+        }
+
+        const objectUrl = URL.createObjectURL(data.image);
+        setPreview(objectUrl);
+
+        return () => URL.revokeObjectURL(objectUrl);
+    }, [data.image]);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -159,6 +176,7 @@ function AddForm() {
                                             name="file"
                                             id="file"
                                             className="hidden"
+                                            required
                                         />
                                         <label htmlFor="file" className="drop-shadow inline-block border border-gray-300 bg-white px-4 py-2 text-sm font-semibold rounded-md cursor-pointer hover:bg-gray-200">
                                             Izvēlēties failu
@@ -171,25 +189,36 @@ function AddForm() {
                                     </div>
                                     {errors.image && <div>{errors.image}</div>}
                                 </div>
-                                <div className='mb-8 flex'>
-                                    <input
-                                        onChange={e => setData('availability', e.target.value)}
-                                        id="availability"
-                                        name="availability"
-                                        type="checkbox"
-                                        className="drop-shadow h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                                    />
-                                    <label htmlFor="availability" className="px-2 font-medium text-gray-900">Pieejams noliktavā</label>
-                                </div>
                             </div>
                         </div>
 
 
                         <div className='flex flex-1 pl-8 pb-8'>
-                            <div className='flex flex-col flex-1 bg-gray-200'>
-                                <h2 className="text-xl font-semibold text-gray-900">Priekšskatījums</h2>
-                                <div className='flex flex-1 bg-blue-300'>
+                            <div className='flex flex-col flex-1 bg-gray-100 p-4 rounded-md justify-center'>
+                                <div className='flex justify-center'>
+                                    <div className="pb-4 mb-4">
+                                        <h2 className="text-center text-xl font-semibold text-gray-900 mb-4">Priekšskatījums</h2>
+                                        <div className='aspect-video'>
+                                            {preview ? (
+                                                <img src={preview} alt="Product Preview" className="w-full h-64 object-cover mb-4 rounded-md" />
+                                            ) : (
+                                                <img src='https://placehold.co/600x400?text=Your+product+here' alt="Product Preview" className="w-full h-64 object-cover mb-4 rounded-md" />
+                                            )}
+                                        </div>
+                                        <div className='flex justify-between'>
+                                            <div>
+                                                <h3 className="text-lg font-bold">{data.name}</h3>
+                                                <p className="text-gray-600">{data.category}</p>
+                                                <p className="text-gray-800">${data.price}</p>
+                                            </div>
+                                            <div className='flex flex-col'>
+                                                <a href='#' className='block text-lg hover:text-gray-600 font-bold'>Add to cart</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+
+
                             </div>
                         </div>
 

@@ -12,6 +12,10 @@ Route::get('/products', [ProductController::class, 'index']);
 
 Route::post('/products', [ProductController::class, 'store']);
 
+Route::get('/', function () {
+    return Inertia::render('Welcome');
+});
+
 Route::get('/add', function () {
     return Inertia::render('AddProduct');
 });
