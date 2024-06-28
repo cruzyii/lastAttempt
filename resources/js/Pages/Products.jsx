@@ -3,7 +3,9 @@ import Layout from "@/Components/Layout";
 import Sidebar from "@/Components/Sidebar";
 import { IoIosMenu } from "react-icons/io";
 import { FaChevronDown } from "react-icons/fa";
-import { router } from '@inertiajs/react'
+import Button from "@/Components/Button"; 
+import { router } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
 
 function Products({ products }) {
     const [category, setCategory] = useState('');
@@ -18,6 +20,8 @@ function Products({ products }) {
             $id: productId,
           })
     };
+
+
 
 
 
@@ -45,17 +49,19 @@ function Products({ products }) {
                 <div className="flex flex-wrap">
                     {filteredProducts.map(product => (
                         <div key={product.id} className="w-full md:w-1/2 lg:w-1/3">
-                            <div className="p-4 mb-4">
+                            <div className="p-4 m-2 border rounded-md">
                                 <div className='aspect-video'><img src={`/storage/${product.image}`} alt={product.name} className="rounded-md object-cover w-full h-full mb-4" /></div>
                                 <div className='flex justify-between'>
-                                    <div>
+                                    <div className=''> 
                                         <h3 className="text-lg font-bold">{product.name}</h3>
                                         <p className="text-gray-600">{product.category}</p>
                                         <p className="text-gray-800">${product.price}</p>
                                     </div>
-                                    <div className='flex flex-col'>
-                                        <button className='block text-lg hover:text-gray-600 font-bold'>Add to cart</button>
-                                        <button onClick={() => handleDelete(product.id)} className='block text-lg hover:text-red-600 font-bold'>Delete</button>
+                                    <div className=''>
+                                        <Button className='block w-full'>Pievienot grozam</Button>
+                                        {/* <Button className='block w-full' onClick={() => handleEdit(product.id)}>Rediģēt</Button> */}
+                                        <Link href={route('products.edit', product.id)} className='block w-full' >Rediģēt</Link>
+                                        <Button className='block w-full' onClick={() => handleDelete(product.id)}>Dzēst</Button>
                                     </div>
                                 </div>
 

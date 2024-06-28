@@ -10,11 +10,11 @@ function Navbar({ showFlyout, setShowFlyout }) {
                     <Link href='/' className='font-AbhayaLibre font-bold text-3xl'>Zenith</Link>
                 </div>
                 <ul className='flex items-center space-x-4'>
-                    <li><Link href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Kolekcijas</Link></li>
-                    <li><Link href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Apģērbi</Link></li>
-                    <li><Link href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Akesuāri</Link></li>
-                    <li><Link href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Apavi</Link></li>
-                    <li><Link href='#' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Izpārdošana</Link></li>
+                    <li><Link href='/products' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Kolekcijas</Link></li>
+                    <li><Link href='/products' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Apģērbi</Link></li>
+                    <li><Link href='/products' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Akesuāri</Link></li>
+                    <li><Link href='/products' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Apavi</Link></li>
+                    <li><Link href='/products' onMouseEnter={() => setShowFlyout(true)} onMouseLeave={() => setShowFlyout(false)}>Izpārdošana</Link></li>
                 </ul>
                 <form>
                     <div className="transition-background-color duration-500 flex rounded-3xl bg-gray-100 w-max pr-3 items-center focus-within:bg-gray-900/5 h-9 focus-within:shadow-dark">

@@ -6,11 +6,10 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 
-Route::get('/products', [ProductController::class, 'index']);
 
-Route::post('/products', [ProductController::class, 'store']);
+Route::resource('products', ProductController::class);
+
 
 Route::get('/', function () {
     return Inertia::render('Welcome');
