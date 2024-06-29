@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ProductResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
@@ -49,8 +50,8 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        return inertia::render('Edit', [
-            'product' => $product,
+        return inertia('Edit', [
+            'product' => new ProductResource($product)
         ]);
     }
 
