@@ -58,7 +58,6 @@ class ProductController extends Controller
     // Handle the form submission
     public function update(Request $request, Product $product)
     {
-        Log::info('Request data:', $request->all());
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'price' => 'required|numeric|min:0',
@@ -68,18 +67,12 @@ class ProductController extends Controller
             'color' => 'required|string',
             'size' => 'required|string',
         ]);
-
-
-        // Initialize data array with validated data
         
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+            $validatedData['image'] = $imagePath;
+        }
 
-        // Handle image upload if present
-        // if ($request->hasFile('image')) {
-        //     $imagePath = $request->file('image')->store('images', 'public');
-        //     $data['image'] = $imagePath;
-        // }
-
-        // Update the product with validated data
 
         $product->update($validatedData);
 
