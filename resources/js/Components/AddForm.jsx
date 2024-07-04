@@ -8,7 +8,7 @@ import Button from './Button';
 
 
 function AddForm() {
-    const { errors } = usePage().props;
+    const { errors, categories, genders, colors, sizes } = usePage().props;
 
     const { data, setData, post } = useForm({
         name: '',
@@ -79,9 +79,9 @@ function AddForm() {
                                             autoComplete="gender"
                                             className="w-[300px] drop-shadow py-1.5 pl-3  border border-gray-300 rounded-md bg-white pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6"
                                         >
-                                            <option>Vīriešiem</option>
-                                            <option>Sievietēm</option>
-                                            <option>Unisex</option>
+                                            {genders.map(gender => (
+                                                <option key={gender.id}>{gender.name}</option>
+                                            ))}
                                         </select>
                                     </div>
                                 </div>
@@ -114,9 +114,9 @@ function AddForm() {
                                             autoComplete="category"
                                             className="w-[300px] drop-shadow py-1.5 pl-3  border border-gray-300 rounded-md flex-1 bg-white pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6"
                                         >
-                                            <option>T-Krekli</option>
-                                            <option>Bikses</option>
-                                            <option>Šorti</option>
+                                            {categories.map(category => (
+                                                <option key={category.id}>{category.name}</option>
+                                            ))}
                                         </select>
                                     </div>
                                 </div>
@@ -145,9 +145,9 @@ function AddForm() {
                                             name="color"
                                             className="w-[300px] pl-3 drop-shadow py-1.5  border border-gray-300 rounded-md flex-1 bg-white pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6"
                                         >
-                                            <option>Balts</option>
-                                            <option>Melns</option>
-                                            <option>Sarkans</option>
+                                            {colors.map(color => (
+                                                <option key={color.id}>{color.name}</option>
+                                            ))}
                                         </select>
                                     </div>
                                     <div>
@@ -161,9 +161,9 @@ function AddForm() {
                                             autoComplete="size"
                                             className="w-[300px] pl-3 drop-shadow py-1.5  border border-gray-300 rounded-md flex-1 bg-white pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6"
                                         >
-                                            <option>S</option>
-                                            <option>M</option>
-                                            <option>L</option>
+                                            {sizes.map(size => (
+                                                <option key={size.id}>{size.name}</option>
+                                            ))}
                                         </select>
                                     </div>
 
@@ -197,7 +197,7 @@ function AddForm() {
                             <div className='flex flex-col flex-1 bg-gray-100 p-4 rounded-md justify-center'>
                                 <div className='flex justify-center'>
                                     <div className="pb-4 mb-4">
-                                    <h2 className="text-center text-xl font-semibold text-gray-900 mb-4">Priekšskatījums</h2>
+                                        <h2 className="text-center text-xl font-semibold text-gray-900 mb-4">Priekšskatījums</h2>
                                         <div className="rounded-lg flex overflow-hidden flex-col">
                                             <div className='w-full h-auto bg-gray-100'>
                                                 {preview ? (

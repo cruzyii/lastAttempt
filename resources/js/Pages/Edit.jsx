@@ -9,7 +9,7 @@ import Button from '@/Components/Button';
 
 
 function Edit({ product }) {
-    const { errors } = usePage().props;
+    const { errors, categories, genders, colors, sizes } = usePage().props;
     const { data, setData, put } = useForm({
         name: product.name,
         price: product.price,
@@ -98,9 +98,9 @@ function Edit({ product }) {
                                                     autoComplete="gender"
                                                     className="w-[300px] drop-shadow py-1.5 pl-3  border border-gray-300 rounded-md bg-white pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6"
                                                 >
-                                                    <option>Vīriešiem</option>
-                                                    <option>Sievietēm</option>
-                                                    <option>Unisex</option>
+                                                    {genders.map(gender =>(
+                                                        <option key={gender.id}>{gender.name}</option>
+                                                    ))}
                                                 </select>
                                             </div>
                                         </div>
@@ -135,9 +135,9 @@ function Edit({ product }) {
                                                     autoComplete="category"
                                                     className="w-[300px] drop-shadow py-1.5 pl-3  border border-gray-300 rounded-md flex-1 bg-white pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6"
                                                 >
-                                                    <option>T-Krekli</option>
-                                                    <option>Bikses</option>
-                                                    <option>Šorti</option>
+                                                    {categories.map(category => (
+                                                        <option key={category.id}>{category.name}</option>
+                                                    ))}
                                                 </select>
                                             </div>
                                         </div>
@@ -168,9 +168,9 @@ function Edit({ product }) {
                                                     name="color"
                                                     className="w-[300px] pl-3 drop-shadow py-1.5  border border-gray-300 rounded-md flex-1 bg-white pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6"
                                                 >
-                                                    <option>Balts</option>
-                                                    <option>Melns</option>
-                                                    <option>Sarkans</option>
+                                                    {colors.map(color =>(
+                                                        <option key={color.id}>{color.name}</option>
+                                                    ))}
                                                 </select>
                                             </div>
                                             <div>
@@ -185,9 +185,9 @@ function Edit({ product }) {
                                                     autoComplete="size"
                                                     className="w-[300px] pl-3 drop-shadow py-1.5  border border-gray-300 rounded-md flex-1 bg-white pl-1 text-gray-900 focus:ring-0 sm:text-sm sm:leading-6"
                                                 >
-                                                    <option>S</option>
-                                                    <option>M</option>
-                                                    <option>L</option>
+                                                    {sizes.map(size =>(
+                                                        <option key={size.id}>{size.name}</option>
+                                                    ))}
                                                 </select>
                                             </div>
 
@@ -195,6 +195,7 @@ function Edit({ product }) {
                                         <div className='mb-8'>
                                             <div className='flex'>
                                                 <input
+                                                    value={data.image}
                                                     onChange={(e) => setData('image', e.target.files[0])}
                                                     type="file"
                                                     name="file"

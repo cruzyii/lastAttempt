@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ProductResource;
+use App\Models\Category;
+use App\Models\Gender;
+use App\Models\Size;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use App\Models\Product;
 use Illuminate\Support\Facades\Log;
+use App\Models\Color;
 
 class ProductController extends Controller
 {
@@ -50,7 +54,16 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
+        $categories = Category::all();
+        $colors = Color::all();
+        $genders = Gender::all();
+        $sizes = Size::all();
+
         return inertia('Edit', [
+            'categories' => $categories,
+            'colors' => $colors,
+            'sizes' => $sizes,
+            'genders' => $genders,
             'product' => new ProductResource($product)
         ]);
     }
@@ -93,4 +106,22 @@ class ProductController extends Controller
 
         return redirect('/products');
     }
+
+    public function create()
+    {
+        $categories = Category::all();
+        $colors = Color::all();
+        $genders = Gender::all();
+        $sizes = Size::all();
+        
+        return inertia('AddProduct', [
+            'categories' => $categories,
+            'colors' => $colors,
+            'sizes' => $sizes,
+            'genders' => $genders,
+        ]);
+
+
+    }
+
 }

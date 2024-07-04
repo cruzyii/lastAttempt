@@ -13,7 +13,7 @@ function Subnav(){
             </div>
             <div className="flex flex-1 justify-end">
             <div className="my-2 mr-[72px] content-center drop-shadow rounded-md bg-gray-800 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-600">
-                    <Link href="/add">Pievienot produktu</Link>
+                    <Link href="/products/create">Pievienot produktu</Link>
                 </div>
             </div>
         </div>
